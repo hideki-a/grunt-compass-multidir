@@ -1,0 +1,41 @@
+{
+  "name": "grunt-compass-multidir",
+  "description": "Compile sass with multiple directories.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/hideki-a/grunt-compass-multidir",
+  "author": {
+    "name": "Hideki Abe",
+    "email": "hideki.abe.0630@gmail.com",
+    "url": "http://www.skyward-design.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hideki-a/grunt-compass-multidir.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hideki-a/grunt-compass-multidir/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/hideki-a/grunt-compass-multidir/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "bin": "bin/grunt-compass-multidir",
+  "engines": {
+    "node": "~0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-lib-contrib": "~0.4.0",
+    "grunt-contrib-clean": "~0.4.0a",
+    "grunt-contrib-nodeunit": "~0.1.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}

@@ -1,0 +1,14 @@
+@import "compass";
+
+$experimental-support-for-mozilla: false;
+$color: #000;
+
+body{
+	color: $color;
+	line-height: 20px;
+	font-size: 14px;
+}
+
+h1{
+	@include transform(rotate(-45deg));
+}
