@@ -2,6 +2,35 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    compass: {
+      dev: {
+        reference: {
+          'htdocs/common/css': 'htdocs/_scss',
+          'htdocs/category/css': 'htdocs/category/_scss'
+        },
+        options: {
+          config: 'config.rb',
+          environment: 'development'
+        }
+      },
+      dist: {
+        reference: '<%= compass.dev.reference %>',
+        options: {
+          config: 'config.rb',
+          environment: 'production',
+          force: true
+        }
+      },
+      test: {
+        reference: {
+          'tmp/': 'test/fixtures/'
+        },
+        options: {
+          config: 'config.rb',
+          environment: 'production'
+        }
+      }
+    },
     test: {
       files: ['test/**/*.js']
     },
@@ -9,7 +38,7 @@ module.exports = function(grunt) {
       files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js']
     },
     watch: {
-      files: '<config:lint.files>',
+      files: '<%= lint.files %>',
       tasks: 'default'
     },
     jshint: {
@@ -31,10 +60,19 @@ module.exports = function(grunt) {
     }
   });
 
+  // Load npm tasks.
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
+
   // Load local tasks.
   grunt.loadTasks('tasks');
 
+  // Regist tasks.
+  grunt.registerTask('mkdir', function(dir) {
+    require('fs').mkdirSync(dir);
+  });
+
   // Default task.
   grunt.registerTask('default', 'lint test');
-
+  grunt.registerTask('test', ['clean', 'mkdir:tmp', 'compass:test', 'nodeunit', 'clean']);
 };
