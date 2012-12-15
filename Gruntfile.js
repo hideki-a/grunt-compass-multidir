@@ -32,10 +32,10 @@ module.exports = function(grunt) {
       }
     },
     test: {
-      files: ['test/**/*.js']
+      files: ['test/*_test.js']
     },
     lint: {
-      files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js']
+      files: ['grunt.js', 'tasks/**/*.js', 'test/*_test.js']
     },
     watch: {
       files: '<%= lint.files %>',
@@ -57,6 +57,12 @@ module.exports = function(grunt) {
         es5: true
       },
       globals: {}
+    },
+    clean: {
+      test: ['tmp', '.sass-cache']
+    },
+    nodeunit: {
+      tasks: ['test/*_test.js']
     }
   });
 
