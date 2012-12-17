@@ -18,6 +18,7 @@ grunt.loadNpmTasks('grunt-compass-multidir');
 _(Coming soon)_
 
 ## An Example Setup
+grunt.js
 ```javascript
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
     },
     watch: {
       compass: {
-        files: 'htdocs/**/_scss/*.scss',
+        files: 'htdocs/**/*.scss',
         tasks: 'compass:dev'
       }
     },
