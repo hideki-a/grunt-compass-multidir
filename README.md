@@ -54,7 +54,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-compass-multidir');
-  grunt.registerTask('develop', 'compass:dev watch');
+  grunt.registerTask('develop', ['compass:dev', 'watch']);
 };
 ```
 <!-- 
